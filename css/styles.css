@@ -6,6 +6,7 @@
     --border-color: #EEEEEE;
     --white-color: #FFFFFF;
     --icon-color: #AFB1B8;
+    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -100,10 +101,10 @@ body {
 }
 
 .header-link {
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--cubic-bezier);
 
+    position: relative;
+    
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -118,6 +119,18 @@ body {
     color: var(--accent-color);
 }
 
+.header-link.current::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+}
+
 .header-link:hover,
 .header-link:focus {
     color: var(--accent-color);
@@ -128,9 +141,7 @@ body {
 }
 
 .header-mail {
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--cubic-bezier);
 
     font-style: normal;
     font-weight: 500;
@@ -147,9 +158,7 @@ body {
 }
 
 .header-mail-icons {
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--cubic-bezier);
 
     fill: var(--main-text-color);
     margin-right: 10px;
@@ -166,9 +175,7 @@ body {
 }
 
 .header-tel {
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--cubic-bezier);
 
     font-style: normal;
     font-weight: 500;
@@ -185,9 +192,7 @@ body {
 }
 
 .header-tel-icons {
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--cubic-bezier);
 
     fill: var(--main-text-color);
     margin-right: 10px;
@@ -413,6 +418,8 @@ body {
 }
 
 .team-social-link {
+    transition: background-color 250ms var(--cubic-bezier);
+
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -422,6 +429,8 @@ body {
 }
 
 .team-social-icon {
+    transition: fill 250ms var(--cubic-bezier);
+
     fill: var(--icon-color);
 }
 
@@ -471,6 +480,8 @@ body {
 }
 
 .clients-link {
+    transition: border 250ms var(--cubic-bezier);
+
     width: 100%;
     height: 100%;
     display: flex;
@@ -481,6 +492,8 @@ body {
 }
 
 .clients-link-icon {
+    transition: fill 250ms var(--cubic-bezier);
+
     fill: var(--icon-color);
 }
 
@@ -522,6 +535,10 @@ footer {
     line-height: 1.19;
     letter-spacing: 0.03em;
     color: var(--accent-color);
+}
+
+.footer-address a {
+    transition: color 250ms var(--cubic-bezier);
 }
 
 .footer-address a:hover,
@@ -586,6 +603,8 @@ footer {
 }
 
 .footer-social-item {
+    transition: background-color 250ms var(--cubic-bezier);
+
     width: 44px;
     height: 44px;
     background-color: #43444D;
@@ -610,7 +629,7 @@ footer {
     justify-content: center;
 }
 
-.footer-social-icon {
+.footer-social-icon {    
     fill: var(--white-color);
 }
 
@@ -634,6 +653,10 @@ footer {
     margin-right: 8px;
 }
 .portfolio-btn {
+    transition: background-color 250ms var(--cubic-bezier), 
+    color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
+
     padding: 6px 22px;
     font-family: inherit;
     cursor: pointer;
@@ -666,6 +689,8 @@ footer {
 }
 
 .portfolio-photo {
+    transition: box-shadow 250ms var(--cubic-bezier);
+
     flex-basis: calc((100% - 3 * 30px) / 3);
     margin-top: 30px;
     margin-left: 30px;
